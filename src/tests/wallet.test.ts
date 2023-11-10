@@ -29,9 +29,7 @@ describe('Wallet Routes', () => {
 
       mockedWalletService.prototype.getWallet.mockResolvedValue(100); // Mock the getWallet method
 
-      const response = await request(app.getServer())
-        .get(walletRoute.path + '/wallet')
-        .set('Authorization', 'Bearer testToken');
+      const response = await request(app.getServer()).get(walletRoute.path).set('Authorization', 'Bearer testToken');
 
       expect(response.status).toBe(200);
       expect(response.body).toEqual({ data: 100, message: 'Successful' });
@@ -48,7 +46,7 @@ describe('Wallet Routes', () => {
       mockedWalletService.prototype.fundWallet.mockResolvedValue(150); // Mock the fundWallet method
 
       const response = await request(app.getServer())
-        .post(walletRoute.path + '/wallet/fund')
+        .post(walletRoute.path + '/fund')
         .set('Authorization', 'Bearer testToken')
         .send({ amount: 50 });
 
@@ -67,7 +65,7 @@ describe('Wallet Routes', () => {
       mockedWalletService.prototype.transferFunds.mockResolvedValue(75); // Mock the transferFunds method
 
       const response = await request(app.getServer())
-        .post(walletRoute.path + '/wallet/transfer')
+        .post(walletRoute.path + '/transfer')
         .set('Authorization', 'Bearer testToken')
         .send({ recipientId: 2, amount: 25 });
 
