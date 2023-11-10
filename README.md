@@ -24,8 +24,8 @@ The Bus Ticketing Platform is a web application that allows users to manage bus 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/bus-ticketing-platform.git
-   cd bus-ticketing-platform
+   git clone https://github.com/sogunshola/express-bus-ticketing-backed.git
+   cd express-bus-ticketing-backed
    ```
 
 2. Install dependencies:
@@ -52,8 +52,8 @@ The Bus Ticketing Platform is a web application that allows users to manage bus 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/your-username/bus-ticketing-platform.git
-   cd bus-ticketing-platform
+   git clone https://github.com/sogunshola/express-bus-ticketing-backed.git
+   cd express-bus-ticketing-backed
    ```
 
 2. Build the Docker image:
