@@ -14,10 +14,6 @@ FROM common-build-stage as development-build-stage
 
 ENV NODE_ENV development
 
-RUN yarn migration:run
-
-RUN yarn seed:run
-
 CMD ["yarn", "run", "dev"]
 
 # Production build stage
