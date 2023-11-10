@@ -1,0 +1,45 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./
+      target: development-build-stage
+      dockerfile: Dockerfile
+    container_name: server
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - DB_PORT=3306
+      - DB_URL=mysql://sogunshola:password@db4free.net:3306/lendsqrtest
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    restart: 'unless-stopped'
+    networks:
+      - busticketBE
+
+  # mysql:
+  #   image: mysql:5.7
+  #   container_name: mysql
+  #   restart: 'unless-stopped'
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: password
+  #     MYSQL_DATABASE: db
+  #     MYSQL_USER: user
+  #     MYSQL_PASSWORD: password
+  #   volumes:
+  #     - ./mysql:/var/lib/mysql
+  #   ports:
+  #     - '3306:3306'
+  #   networks:
+  #     - busticketBE
+
+networks:
+  busticketBE:
+
+volumes:
+  data:
+    driver: local
